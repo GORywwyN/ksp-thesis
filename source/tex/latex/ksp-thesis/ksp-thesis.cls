@@ -8,12 +8,13 @@
 %%% ===========================================================================
 %%% OPTION DECLARATION AND PROCESSING
 %%% ===========================================================================
+\RequirePackage{xkeyval}
 %%% pass unknown options on to the base class
-\DeclareOption*{%
+\DeclareOptionX*{%
    \PassOptionsToClass{\CurrentOption}{scrbook}%
 }
 %%% process options
-\ProcessOptions\relax
+\ProcessOptionsX<kspths>\relax
 
 %%% ===========================================================================
 %%% LOAD BASE CLASS <scrbook>
