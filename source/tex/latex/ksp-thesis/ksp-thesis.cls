@@ -72,5 +72,11 @@
 %%% ===========================================================================
 %%% MAIN DECLARATIONS
 %%% ===========================================================================
+%%% <classicthesis> for layout, font and typography settings
+%%% ---------------------------------------------------------------------------
+\PassOptionsToPackage{dottedtoc}{classicthesis} % sets pagenumbers flushed right in the table of contents
+\RequirePackage{classicthesis}
+%%% reset page and typearea settings according to KSP requirements
+%%% ---------------------------------------------------------------------------
 \kspths@setlayout
 \recalctypearea
