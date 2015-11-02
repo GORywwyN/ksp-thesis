@@ -53,7 +53,8 @@
       \renewcommand{\kspths@setlayout}{\kspths@setlayout@seventeentwentyfour}
    \fi
 }{%
-   \PackageWarning{ksp-thesis}{Value '#1' is unknown for key 'layout' and will be ignored.}
+   \PackageWarning{ksp-thesis}{Value '#1' is unknown for key 'layout' and will %
+      be ignored.}%
 }
 
 %%% pass unknown options on to the base class
@@ -72,11 +73,84 @@
 %%% ===========================================================================
 %%% MAIN DECLARATIONS
 %%% ===========================================================================
-%%% <classicthesis> for layout, font and typography settings
+%%% <classicthesis> and <arsclassica> for layout, font and typography settings
 %%% ---------------------------------------------------------------------------
 \PassOptionsToPackage{dottedtoc}{classicthesis} % sets pagenumbers flushed right in the table of contents
 \RequirePackage{classicthesis}
+\RequirePackage{arsclassica}
 %%% reset page and typearea settings according to KSP requirements
 %%% ---------------------------------------------------------------------------
 \kspths@setlayout
 \recalctypearea
+%%% modify <arsclassica> definitions for headings
+%%% ---------------------------------------------------------------------------
+%%% color definitions
+\definecolor{parttitlecolor}{named}{Maroon}
+\definecolor{chapternumbercolor}{named}{halfgray}
+%%% use font definitions that are compatible with KOMA script
+\setkomafont{part}{\normalfont\centering\large}
+\newkomafont{parttitle}{\color{parttitlecolor}\spacedallcaps}
+\setkomafont{chapter}{\normalfont\Large\sffamily}
+\newkomafont{chaptertitle}{\raggedright\spacedallcaps}
+\setkomafont{section}{\normalfont\Large\sffamily\raggedright}
+\newkomafont{sectiontitle}{\spacedlowsmallcaps}
+\setkomafont{subsection}{\normalfont\large\sffamily\raggedright}
+\newkomafont{subsectiontitle}{\relax}
+\setkomafont{subsubsection}{\normalfont\sffamily\itshape\raggedright}
+\newkomafont{subsubsectiontitle}{\normalsize\itshape}
+\setkomafont{paragraph}{\normalfont\normalsize\sffamily}
+\newkomafont{paragraphtitle}{\spacedlowsmallcaps}
+\setkomafont{descriptionlabel}{\bfseries\spacedlowsmallcaps}
+%%% command to make a box with the width of the current chapter number
+%%% (this allows to use equal width for chapter, ..., subsubsection numbers)
+\newlength{\secnumwidth}%
+\newcommand{\kspths@secnumbox}[1]{%
+\settowidth{\secnumwidth}{\usekomafont{chapter}{\chapterNumber\thechapter\hspace{10pt}\vline}  }%
+\makebox[\secnumwidth][l]{#1}%
+}
+%%% reformat parts
+\ifthenelse{\boolean{@parts}}%
+{%
+   \titleformat{\part}[display]
+      {\usekomafont{part}}%
+      {\thispagestyle{empty}\partname~\MakeTextUppercase{\thepart}}{1em}%
+      {\usekomafont{parttitle}}
+}{\relax}
+%%% reformat chapters
+\ifthenelse{\boolean{@linedheaders}}{%
+   \PackageWarning{ksp-thesis}{%
+      The 'linedheaders' option of the <classicthesis> package is incompatible and %
+      will be ignored.}%
+}{}
+\renewcommand\formatchapter[1]{% 
+   \vbox to \ht\strutbox{ 
+   \setbox0=\hbox{\chapterNumber\thechapter\hspace{10pt}\vline\ } 
+   \advance\hsize-\wd0 \advance\hsize-10pt
+   \usekomafont{chaptertitle}{#1}\vss}} 
+\titleformat{\chapter}[block] 
+   {\usekomafont{chapter}} 
+   {\textcolor{chapternumbercolor}{\chapterNumber\thechapter} 
+   \hspace{10pt}\vline\ }{10pt} 
+   {\formatchapter}
+%%% reformat sections
+\titleformat{\section} 
+   {\usekomafont{section}}{\kspths@secnumbox{\textsc%
+   {\MakeTextLowercase{\thesection}}}}%
+   {10pt}{\usekomafont{sectiontitle}}
+%%% reformat subsections
+\titleformat{\subsection}
+   {\usekomafont{subsection}}{\kspths@secnumbox{\textsc{\MakeTextLowercase%
+   {\thesubsection}}}}{10pt}{\usekomafont{subsectiontitle}}
+%%% reformat subsubsections
+\titleformat{\subsubsection}
+   {\usekomafont{subsubsection}}{\kspths@secnumbox{\textsc%
+   {\MakeTextLowercase{\thesubsubsection}}}}%
+   {10pt}{\usekomafont{subsubsectiontitle}}        
+%%% reformat paragraphs
+\titleformat{\paragraph}[runin]
+   {\usekomafont{paragraph}}{\textsc%
+   {\MakeTextLowercase{\theparagraph}}}%
+   {0pt}{\usekomafont{paragraphtitle}}    
+%%% reformat descriptionlabels
+\renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}%
+\usekomafont{descriptionlabel}{#1}}
