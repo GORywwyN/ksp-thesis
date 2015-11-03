@@ -41,7 +41,8 @@
 %%% OPTION DECLARATION AND PROCESSING
 %%% ===========================================================================
 \RequirePackage{xkeyval}
-%%% set layout according to document stage
+%%% main page layout options
+%%% ---------------------------------------------------------------------------
 \define@choicekey*+{kspths}{layout}[\val\nr]{draft,official,report,17x24}{%
    \ifcase\nr\relax
       \renewcommand{\kspths@setlayout}{\kspths@setlayout@draft}
@@ -56,12 +57,41 @@
    \PackageWarning{ksp-thesis}{Value '#1' is unknown for key 'layout' and will %
       be ignored.}%
 }
+%%% TOC style options
+%%% ---------------------------------------------------------------------------
+\define@boolkey+{kspths}{dottedtoc}[true]{%
+   \ifKV@kspths@dottedtoc
+      %\PassOptionsToPackage{dottedtoc}{classicthesis} % sets pagenumbers flushed right in the table of contents
+   \else
+      \@ifpackagewith{classicthesis}{dottedtoc}{%
+         \ClassWarning{ksp-thesis}{'dottedtoc=#1': The option 'dottedtoc' of the %
+            <classicthesis> package has been previously set and cannot be %
+            overridden anymore. %
+            Please remove the earlier setting}
+      }{%
+         \ClassWarning{ksp-thesis}{The default setting for 'dottedtoc' has been changed to 
+         '#1'.}
+      }
+   \fi
+}{%
+   \ClassError{ksp-thesis}{Invalid value '#1' for 'dottedtoc' key, assuming 'true'}%
+      {Please use 'true' or 'false'}%
+   \setkeys{kspths}{dottedtoc=true}
+}
 
 %%% pass unknown options on to the base class
+%%% ---------------------------------------------------------------------------
 \DeclareOptionX*{%
    \PassOptionsToClass{\CurrentOption}{scrbook}%
 }
+%%% default settings
+%%% ---------------------------------------------------------------------------
+\presetkeys{kspths}{%
+   dottedtoc,
+   %layout=report, % default behavoir is set above with \newcommand{\kspths@setlayout}
+}{}
 %%% process options
+%%% ---------------------------------------------------------------------------
 \ProcessOptionsX<kspths>\relax
 
 %%% ===========================================================================
@@ -73,9 +103,13 @@
 %%% ===========================================================================
 %%% MAIN DECLARATIONS
 %%% ===========================================================================
+%%% set package options
+%%% ---------------------------------------------------------------------------
+\ifKV@kspths@dottedtoc
+   \PassOptionsToPackage{dottedtoc}{classicthesis} % sets pagenumbers flushed right in the table of contents
+\fi
 %%% <classicthesis> and <arsclassica> for layout, font and typography settings
 %%% ---------------------------------------------------------------------------
-\PassOptionsToPackage{dottedtoc}{classicthesis} % sets pagenumbers flushed right in the table of contents
 \RequirePackage{classicthesis}
 \RequirePackage{arsclassica}
 %%% reset page and typearea settings according to KSP requirements
