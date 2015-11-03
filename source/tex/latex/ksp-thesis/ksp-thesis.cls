@@ -78,6 +78,30 @@
       {Please use 'true' or 'false'}%
    \setkeys{kspths}{dottedtoc=true}
 }
+%%% bold TOC part entries
+\define@boolkey+{kspths}{tocpartentriesbold}[true]{%
+   \ifKV@kspths@tocpartentriesbold
+   \else
+      \ClassWarning{ksp-thesis}{The default setting for 'tocpartentriesbold' has been %
+         changed to '#1'.}
+   \fi
+}{%
+   \ClassError{ksp-thesis}{Invalid value '#1' for 'tocpartentriesbold' key, assuming 'true'}%
+      {Please use 'true' or 'false'}%
+   \setkeys{kspths}{tocpartentriesbold=true}
+}
+%%% bold TOC chapter entries
+\define@boolkey+{kspths}{tocchapterentriesbold}[true]{%
+   \ifKV@kspths@tocchapterentriesbold
+   \else
+      \ClassWarning{ksp-thesis}{The default setting for 'tocchapterentriesbold' has been %
+         changed to '#1'.}
+   \fi
+}{%
+   \ClassError{ksp-thesis}{Invalid value '#1' for 'tocchapterentriesbold' key, assuming 'true'}%
+      {Please use 'true' or 'false'}%
+   \setkeys{kspths}{tocchapterentriesbold=true}
+}
 
 %%% pass unknown options on to the base class
 %%% ---------------------------------------------------------------------------
@@ -88,6 +112,7 @@
 %%% ---------------------------------------------------------------------------
 \presetkeys{kspths}{%
    dottedtoc,
+   tocentriesbold,
    %layout=report, % default behavoir is set above with \newcommand{\kspths@setlayout}
 }{}
 %%% process options
@@ -188,3 +213,32 @@
 %%% reformat descriptionlabels
 \renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}%
 \usekomafont{descriptionlabel}{#1}}
+%%% modify <classicthesis> definitions for TOC style
+%%% ---------------------------------------------------------------------------
+%%% use correct format of parts in TOC
+%%% http://tex.stackexchange.com/a/140053
+\def\ttl@tocpart{\def\ttl@a{\protect\numberline{\thepart}\@gobble{}}}
+%%% use equal width for part numbers and chapter numbers
+\setlength{\cftpartnumwidth}{\cftchapnumwidth}
+%%% use bold parts instead of smallcaps if specified in the options
+\ifKV@kspths@tocpartentriesbold
+   \renewcommand{\thepart}{\Roman{part}}%
+   \renewcommand{\cftpartpresnum}{\normalfont\bfseries}%  \scshape
+   \let\cftpartfontoriginal\cftpartfont
+   \renewcommand{\cftpartfont}{%
+\let\spacedlowsmallcapstemp\spacedlowsmallcaps%
+\let\spacedlowsmallcaps\relax%
+\cftpartfontoriginal\bfseries}%
+   \renewcommand{\cftpartafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp}
+   \renewcommand{\cftpartpagefont}{\normalfont\bfseries}%
+\fi
+%%% use bold chapters instead of smallcaps if specified in the options
+\ifKV@kspths@tocchapterentriesbold
+   \renewcommand{\cftchappresnum}{\normalfont\bfseries}%
+   \renewcommand{\cftchapfont}{%
+\let\spacedlowsmallcapstemp\spacedlowsmallcaps%
+\let\spacedlowsmallcaps\relax%
+\normalfont\bfseries}%
+   \renewcommand{\cftchapafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp}
+   \renewcommand{\cftchappagefont}{\normalfont\bfseries}%
+\fi
