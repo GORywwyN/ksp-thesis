@@ -41,6 +41,31 @@
 %%% OPTION DECLARATION AND PROCESSING
 %%% ===========================================================================
 \RequirePackage{xkeyval}
+%%% BEGIN PATCH
+%%% to avoid endless loop when using bad presetkey settings
+%%% http://tex.stackexchange.com/a/94006
+\def\XKV@badsetkeys{%
+  \@latex@error{You can't nest \noexpand\setkeys in preset keys.
+    \MessageBreak That could cause an endless loop}\@ehd
+}
+\let\XKV@savsetkeys\setkeys
+\def\XKV@usepresetkeys#1#2{%
+  \XKV@presettrue
+  \let\setkeys\XKV@badsetkeys
+  \XKV@for@eo\XKV@fams\XKV@tfam{%
+    \XKV@makehd\XKV@tfam
+    \XKV@ifundefined{XKV@\XKV@header#2}{}{%
+      \XKV@toks\expandafter\expandafter\expandafter
+        {\csname XKV@\XKV@header#2\endcsname}%
+      \@expandtwoargs\XKV@s@tkeys{\the\XKV@toks}%
+        {\XKV@naa\ifx\XKV@naa\@empty\else,\fi#1}%
+    }%
+  }%
+  \let\setkeys\XKV@savsetkeys
+  \XKV@presetfalse
+}
+%%% END PATCH
+
 %%% main page layout options
 %%% ---------------------------------------------------------------------------
 \define@choicekey*+{ksp-thesis.cls}{layout}[\val\nr]{draft,official,report,17x24}{%
@@ -102,6 +127,19 @@
       {Please use 'true' or 'false'}%
    \setkeys{ksp-thesis.cls}{tocchapterentriesbold=true}
 }
+%%% bold TOC entries
+\define@boolkey+{ksp-thesis.cls}[kspths@]{tocentriesbold}[true]{%
+   \setkeys{ksp-thesis.cls}{tocpartentriesbold=#1,tocchapterentriesbold=#1}
+   \ifkspths@tocentriesbold
+   \else
+      \ClassWarning{ksp-thesis}{The default setting for 'tocentriesbold' has been %
+         changed to '#1'.}
+   \fi
+}{%
+   \ClassError{ksp-thesis}{Invalid value '#1' for 'tocentriesbold' key, assuming 'true'}%
+      {Please use 'true' or 'false'}%
+   \setkeys{ksp-thesis.cls}{tocentriesbold=true}
+}
 
 %%% pass unknown options on to the base class
 %%% ---------------------------------------------------------------------------
@@ -112,9 +150,10 @@
 %%% ---------------------------------------------------------------------------
 \presetkeys{ksp-thesis.cls}{%
    dottedtoc,
-   tocpartentriesbold,tocchapterentriesbold
+   %tocentriesbold, % cannot be set within \presetkeys
    %layout=report, % default behavoir is set above with \newcommand{\kspths@setlayout}
 }{}
+\setkeys{ksp-thesis.cls}{tocentriesbold} % cannot be set within \presetkeys
 %%% process options
 %%% ---------------------------------------------------------------------------
 \ProcessOptionsX
