@@ -32,7 +32,7 @@
 }
 %%% default layout (if not set in class options)
 \newcommand{\kspths@setlayout}{%
-   \PackageWarning{ksp-thesis}{You have not selected a page layout, the default option 'report' will be used.}
+   \ClassWarning{ksp-thesis}{You have not selected a page layout, the default option 'report' will be used.}
    \kspths@setlayout@report%
 }
 
@@ -54,7 +54,7 @@
       \renewcommand{\kspths@setlayout}{\kspths@setlayout@seventeentwentyfour}
    \fi
 }{%
-   \PackageWarning{ksp-thesis}{Value '#1' is unknown for key 'layout' and will %
+   \ClassWarning{ksp-thesis}{Value '#1' is unknown for key 'layout' and will %
       be ignored.}%
 }
 %%% TOC style options
@@ -152,7 +152,7 @@
 }{\relax}
 %%% reformat chapters
 \ifthenelse{\boolean{@linedheaders}}{%
-   \PackageWarning{ksp-thesis}{%
+   \ClassWarning{ksp-thesis}{%
       The 'linedheaders' option of the <classicthesis> package is incompatible and %
       will be ignored.}%
 }{}
