@@ -59,18 +59,18 @@
 }
 %%% TOC style options
 %%% ---------------------------------------------------------------------------
+%%% dotted TOC
 \define@boolkey+{kspths}{dottedtoc}[true]{%
    \ifKV@kspths@dottedtoc
-      %\PassOptionsToPackage{dottedtoc}{classicthesis} % sets pagenumbers flushed right in the table of contents
    \else
       \@ifpackagewith{classicthesis}{dottedtoc}{%
-         \ClassWarning{ksp-thesis}{'dottedtoc=#1': The option 'dottedtoc' of the %
-            <classicthesis> package has been previously set and cannot be %
+         \ClassWarning{ksp-thesis}{'dottedtoc=#1': The option 'dottedtoc' of %
+            the <classicthesis> package has been previously set and cannot be %
             overridden anymore. %
             Please remove the earlier setting}
       }{%
-         \ClassWarning{ksp-thesis}{The default setting for 'dottedtoc' has been changed to 
-         '#1'.}
+         \ClassWarning{ksp-thesis}{The default setting for 'dottedtoc' has %
+            been changed to '#1'.}
       }
    \fi
 }{%
