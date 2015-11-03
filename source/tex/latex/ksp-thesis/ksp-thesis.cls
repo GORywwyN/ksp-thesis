@@ -43,7 +43,7 @@
 \RequirePackage{xkeyval}
 %%% main page layout options
 %%% ---------------------------------------------------------------------------
-\define@choicekey*+{kspths}{layout}[\val\nr]{draft,official,report,17x24}{%
+\define@choicekey*+{ksp-thesis.cls}{layout}[\val\nr]{draft,official,report,17x24}{%
    \ifcase\nr\relax
       \renewcommand{\kspths@setlayout}{\kspths@setlayout@draft}
    \or
@@ -60,8 +60,8 @@
 %%% TOC style options
 %%% ---------------------------------------------------------------------------
 %%% dotted TOC
-\define@boolkey+{kspths}{dottedtoc}[true]{%
-   \ifKV@kspths@dottedtoc
+\define@boolkey+{ksp-thesis.cls}[kspths@]{dottedtoc}[true]{%
+   \ifkspths@dottedtoc
    \else
       \@ifpackagewith{classicthesis}{dottedtoc}{%
          \ClassWarning{ksp-thesis}{'dottedtoc=#1': The option 'dottedtoc' of %
@@ -76,11 +76,11 @@
 }{%
    \ClassError{ksp-thesis}{Invalid value '#1' for 'dottedtoc' key, assuming 'true'}%
       {Please use 'true' or 'false'}%
-   \setkeys{kspths}{dottedtoc=true}
+   \setkeys{ksp-thesis.cls}{dottedtoc=true}
 }
 %%% bold TOC part entries
-\define@boolkey+{kspths}{tocpartentriesbold}[true]{%
-   \ifKV@kspths@tocpartentriesbold
+\define@boolkey+{ksp-thesis.cls}[kspths@]{tocpartentriesbold}[true]{%
+   \ifkspths@tocpartentriesbold
    \else
       \ClassWarning{ksp-thesis}{The default setting for 'tocpartentriesbold' has been %
          changed to '#1'.}
@@ -88,11 +88,11 @@
 }{%
    \ClassError{ksp-thesis}{Invalid value '#1' for 'tocpartentriesbold' key, assuming 'true'}%
       {Please use 'true' or 'false'}%
-   \setkeys{kspths}{tocpartentriesbold=true}
+   \setkeys{ksp-thesis.cls}{tocpartentriesbold=true}
 }
 %%% bold TOC chapter entries
-\define@boolkey+{kspths}{tocchapterentriesbold}[true]{%
-   \ifKV@kspths@tocchapterentriesbold
+\define@boolkey+{ksp-thesis.cls}[kspths@]{tocchapterentriesbold}[true]{%
+   \ifkspths@tocchapterentriesbold
    \else
       \ClassWarning{ksp-thesis}{The default setting for 'tocchapterentriesbold' has been %
          changed to '#1'.}
@@ -100,7 +100,7 @@
 }{%
    \ClassError{ksp-thesis}{Invalid value '#1' for 'tocchapterentriesbold' key, assuming 'true'}%
       {Please use 'true' or 'false'}%
-   \setkeys{kspths}{tocchapterentriesbold=true}
+   \setkeys{ksp-thesis.cls}{tocchapterentriesbold=true}
 }
 
 %%% pass unknown options on to the base class
@@ -110,14 +110,14 @@
 }
 %%% default settings
 %%% ---------------------------------------------------------------------------
-\presetkeys{kspths}{%
+\presetkeys{ksp-thesis.cls}{%
    dottedtoc,
-   tocentriesbold,
+   tocpartentriesbold,tocchapterentriesbold
    %layout=report, % default behavoir is set above with \newcommand{\kspths@setlayout}
 }{}
 %%% process options
 %%% ---------------------------------------------------------------------------
-\ProcessOptionsX<kspths>\relax
+\ProcessOptionsX
 
 %%% ===========================================================================
 %%% LOAD BASE CLASS <scrbook>
@@ -130,7 +130,7 @@
 %%% ===========================================================================
 %%% set package options
 %%% ---------------------------------------------------------------------------
-\ifKV@kspths@dottedtoc
+\ifkspths@dottedtoc
    \PassOptionsToPackage{dottedtoc}{classicthesis} % sets pagenumbers flushed right in the table of contents
 \fi
 %%% <classicthesis> and <arsclassica> for layout, font and typography settings
@@ -221,7 +221,7 @@
 %%% use equal width for part numbers and chapter numbers
 \setlength{\cftpartnumwidth}{\cftchapnumwidth}
 %%% use bold parts instead of smallcaps if specified in the options
-\ifKV@kspths@tocpartentriesbold
+\ifkspths@tocpartentriesbold
    \renewcommand{\thepart}{\Roman{part}}%
    \renewcommand{\cftpartpresnum}{\normalfont\bfseries}%  \scshape
    \let\cftpartfontoriginal\cftpartfont
@@ -233,7 +233,7 @@
    \renewcommand{\cftpartpagefont}{\normalfont\bfseries}%
 \fi
 %%% use bold chapters instead of smallcaps if specified in the options
-\ifKV@kspths@tocchapterentriesbold
+\ifkspths@tocchapterentriesbold
    \renewcommand{\cftchappresnum}{\normalfont\bfseries}%
    \renewcommand{\cftchapfont}{%
 \let\spacedlowsmallcapstemp\spacedlowsmallcaps%
