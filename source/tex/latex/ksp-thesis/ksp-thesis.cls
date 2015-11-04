@@ -208,7 +208,6 @@
 %%% ---------------------------------------------------------------------------
 %%% color definitions
 \definecolor{parttitlecolor}{named}{Maroon}
-\definecolor{chapternumbercolor}{named}{halfgray}
 %%% use font definitions that are compatible with KOMA script
 \setkomafont{part}{\normalfont\centering\large}
 \newkomafont{parttitle}{\color{parttitlecolor}\spacedallcaps}
@@ -251,7 +250,7 @@
    \usekomafont{chaptertitle}{#1}\vss}} 
 \titleformat{\chapter}[block] 
    {\usekomafont{chapter}} 
-   {\textcolor{chapternumbercolor}{\chapterNumber\thechapter} 
+   {\textcolor{halfgray}{\chapterNumber\thechapter} 
    \hspace{10pt}\vline\ }{10pt} 
    {\formatchapter}
 %%% reformat sections
