@@ -331,3 +331,8 @@
 \AtBeginEnvironment{itemize}{\preto\item{\usekomafont{itemize}}}
 \AtBeginEnvironment{enumerate}{\preto\item{\usekomafont{enumerate}}}
 \AtBeginEnvironment{description}{\preto\item{\usekomafont{description}}}
+%%% line break controls
+%%% http://www.tex.ac.uk/FAQ-widows.html
+\clubpenalty = 10000 % disable first line of a paragraph at the end of a page (orphans / Schusterjungen)
+\widowpenalty = 10000 % disable last line of a paragraph at the start of a page (widows / Hurenkinder)
+\finalhyphendemerits=50000000 % avoid hyphenation before last line of paragraph
