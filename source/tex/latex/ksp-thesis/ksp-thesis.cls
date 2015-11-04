@@ -304,3 +304,7 @@
 \ifkspths@dottedtocchapters
    \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}%
 \fi
+%%% additional layout settings
+%%% ---------------------------------------------------------------------------
+%%% left-aligned footnotes
+\deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
