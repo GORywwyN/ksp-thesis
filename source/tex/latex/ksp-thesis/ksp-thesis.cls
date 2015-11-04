@@ -353,3 +353,7 @@
 \origiwspc=\fontdimen2\font% original inter word space
 \origiwstr=\fontdimen3\font% original inter word stretch
 }
+%%% do not highlight links (remove colors set by <arsclassica>)
+\hypersetup{
+   hidelinks,     % remove link color and border
+}
