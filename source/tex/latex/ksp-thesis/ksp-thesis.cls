@@ -341,3 +341,15 @@
 \clubpenalty = 10000 % disable first line of a paragraph at the end of a page (orphans / Schusterjungen)
 \widowpenalty = 10000 % disable last line of a paragraph at the start of a page (widows / Hurenkinder)
 \finalhyphendemerits=50000000 % avoid hyphenation before last line of paragraph
+%%% commands for manual word spacing controls
+%%% http://tex.stackexchange.com/a/23924
+\newdimen\origiwspc
+\newdimen\origiwstr
+\newcommand{\resetwspc}{\fontdimen2\font=\origiwspc}
+\newcommand{\resetwstr}{\fontdimen3\font=\origiwstr}
+\newcommand{\reducewspc}[1][0.95]{\fontdimen2\font=#1\origiwspc}
+\newcommand{\reducewstr}[1][0.95]{\fontdimen3\font=#1\origiwstr}
+\AtBeginDocument{%
+\origiwspc=\fontdimen2\font% original inter word space
+\origiwstr=\fontdimen3\font% original inter word stretch
+}
