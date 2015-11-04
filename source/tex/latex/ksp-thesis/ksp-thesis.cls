@@ -277,6 +277,11 @@
 \usekomafont{descriptionlabel}{#1}}
 %%% modify <classicthesis> definitions for TOC style
 %%% ---------------------------------------------------------------------------
+%%% change colors
+\ifthenelse{\boolean{@parts}}{%
+   \renewcommand{\cftpartfont}{\color{parttitlecolor}\normalfont}%
+   \renewcommand{\cftpartpagefont}{\color{parttitlecolor}\normalfont}%
+}{\relax}
 %%% use correct format of parts in TOC
 %%% http://tex.stackexchange.com/a/140053
 \def\ttl@tocpart{\def\ttl@a{\protect\numberline{\thepart}\@gobble{}}}
@@ -291,8 +296,9 @@
 \let\spacedlowsmallcapstemp\spacedlowsmallcaps%
 \let\spacedlowsmallcaps\relax%
 \cftpartfontoriginal\bfseries}%
+   \let\cftpartpagefontoriginal\cftpartpagefont
    \renewcommand{\cftpartafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp}
-   \renewcommand{\cftpartpagefont}{\normalfont\bfseries}%
+   \renewcommand{\cftpartpagefont}{\cftpartpagefontoriginal\bfseries}%
 \fi
 %%% use bold chapters instead of smallcaps if specified in the options
 \ifkspths@tocchapterentriesbold
