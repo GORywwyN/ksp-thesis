@@ -103,6 +103,22 @@
       {Please use 'true' or 'false'}%
    \setkeys{ksp-thesis.cls}{dottedtoc=true}
 }
+%%% dotted part entries in TOC
+\define@boolkey+{ksp-thesis.cls}[kspths@]{dottedtocparts}[true]{%
+}{%
+   \ClassError{ksp-thesis}{Invalid value '#1' for 'dottedtocparts' key, %
+      assuming 'true'}%
+      {Please use 'true' or 'false'}%
+   \setkeys{ksp-thesis.cls}{dottedtocparts=true}
+}
+%%% dotted chapter entries in TOC
+\define@boolkey+{ksp-thesis.cls}[kspths@]{dottedtocchapters}[true]{%
+}{%
+   \ClassError{ksp-thesis}{Invalid value '#1' for 'dottedtocchapters' key, %
+      assuming 'true'}%
+      {Please use 'true' or 'false'}%
+   \setkeys{ksp-thesis.cls}{dottedtocchapters=true}
+}
 %%% bold TOC part entries
 \define@boolkey+{ksp-thesis.cls}[kspths@]{tocpartentriesbold}[true]{%
    \ifkspths@tocpartentriesbold
@@ -280,4 +296,11 @@
 \normalfont\bfseries}%
    \renewcommand{\cftchapafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp}
    \renewcommand{\cftchappagefont}{\normalfont\bfseries}%
+\fi
+%%% use dotted leaders for parts/chapters if specified in the options
+\ifkspths@dottedtocparts
+   \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}%
+\fi
+\ifkspths@dottedtocchapters
+   \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}%
 \fi
