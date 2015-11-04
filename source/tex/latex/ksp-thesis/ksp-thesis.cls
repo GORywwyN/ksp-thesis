@@ -36,7 +36,6 @@
    \kspths@setlayout@report%
 }
 
-
 %%% ===========================================================================
 %%% OPTION DECLARATION AND PROCESSING
 %%% ===========================================================================
@@ -156,6 +155,14 @@
       {Please use 'true' or 'false'}%
    \setkeys{ksp-thesis.cls}{tocentriesbold=true}
 }
+%%% ragged lists
+\define@boolkey+{ksp-thesis.cls}[kspths@]{raggedlists}[true]{%
+}{%
+   \ClassError{ksp-thesis}{Invalid value '#1' for 'raggedlists' key, %
+      assuming 'true'}%
+      {Please use 'true' or 'false'}%
+   \setkeys{ksp-thesis.cls}{raggedlists=true}
+}
 
 %%% pass unknown options on to the base class
 %%% ---------------------------------------------------------------------------
@@ -166,6 +173,7 @@
 %%% ---------------------------------------------------------------------------
 \presetkeys{ksp-thesis.cls}{%
    dottedtoc,
+   raggedlists,
    %tocentriesbold, % cannot be set within \presetkeys
    %layout=report, % default behavoir is set above with \newcommand{\kspths@setlayout}
 }{}
@@ -308,3 +316,18 @@
 %%% ---------------------------------------------------------------------------
 %%% left-aligned footnotes
 \deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
+%%% ragged lists
+%%% http://tex.stackexchange.com/a/104093
+\RequirePackage{ragged2e}   % improved ragged text
+\RequirePackage{etoolbox}   %  programming tools for LaTeX class and package authors
+\newkomafont{itemize}{}
+\newkomafont{enumerate}{}
+\newkomafont{description}{}
+\ifkspths@raggedlists
+   \setkomafont{itemize}{\RaggedRight}
+   \setkomafont{enumerate}{\RaggedRight}
+   \setkomafont{description}{\RaggedRight}
+\fi
+\AtBeginEnvironment{itemize}{\preto\item{\usekomafont{itemize}}}
+\AtBeginEnvironment{enumerate}{\preto\item{\usekomafont{enumerate}}}
+\AtBeginEnvironment{description}{\preto\item{\usekomafont{description}}}
