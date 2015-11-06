@@ -70,3 +70,46 @@ Using \textpkgname{ksp-thesis} as your document class (\lstinline|\documentclass
       \item Formatting (coloring) of hyperlinks is removed.\footnote{I believe that coloring options should be left to the document author and in general used sparingly.}
    \end{enumerate}
 \end{enumerate}
+
+%%% ===========================================================================
+\section{Troubleshooting and Usage Tips}
+
+%%% ---------------------------------------------------------------------------
+\subsection{Using options of the \textpkgname{ClassicThesis} package}
+
+If you want to use options of the \textpkgname{ClassicThesis} package, you have to provide them \emph{before} the documentclass definition. In general, I recommend using at least the following options:
+
+\begin{texcode}{how to pass options to the \textpkgname{ClassicThesis} package}
+\PassOptionsToPackage{%
+	pdfspacing,			% make use of pdftex' letter spacing capabilities via the microtype package.
+	floatperchapter,  % activate numbering per chapter for all floats such as figures, tables, and listings
+}{classicthesis}
+\documentclass[%
+   listof=totoc,     % add list of figures, tables, etc. to table of contents
+	ngerman,english,  % document language(s)
+]{ksp-thesis}
+\end{texcode}
+
+%%% ---------------------------------------------------------------------------
+\subsection{Spacing of heading numbers for long documents}
+
+If your document contains a large number of parts and/or chapters, you may have to enlarge the space reserved for part and chapter numbers in the table of contents. This space is controlled by \lstinline|\cftpartnumwidth| and \lstinline|\cftchapnumwidth|, respectively.
+
+For example, if your document contains eight parts, you may adjust the width as follows:
+
+\begin{texcode}{how to adjust the width of part and chapter numbers in the table of contents}
+\settowidth{\cftpartnumwidth}{\cftpartpagefont VIII}
+\setlength{\cftchapnumwidth}{\cftpartnumwidth}
+\end{texcode}
+
+Further information on how to modify the layout of the table of contents can be found in the documentation of the \textpkgname{tocloft} package.
+
+%%% ---------------------------------------------------------------------------
+\subsection{Changing the color of part headings}
+
+Part headings are displayed using the color \enquote{\texttt{parttitlecolor}}.%
+\footnote{The \textpkgname{ClassicThesis} package uses the color \enquote{\texttt{Maroon}} as defined by the \textpkgname{xcolor} package to emphasize part headings. I believe that it is more convenient to use a syntactic color name and therefore used the semantic name \enquote{\texttt{parttitlecolor}} instead.} %
+If, for example, you prefer a black-and-white document, you can thus simply redefine this color to be black:
+\begin{texcode}{how to change the color of part headings}
+\definecolor{parttitlecolor}{named}{black}
+\end{texcode}
