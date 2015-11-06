@@ -49,3 +49,24 @@ The \textpkgname{ksp-thesis} class is a \LaTeX\ class intended for authors who w
    
    On \TeX Live systems, run |texhash| as root (|sudo texhash|). On MiK\TeX, run |initexmf --update-fndb| in a command window or use the \textprgout{Refresh FNDB} button of the MiK\TeX\ Options window.
 \end{enumerate}
+
+
+%%% ===========================================================================
+\section{Usage}
+
+Using \textpkgname{ksp-thesis} as your document class (\lstinline|\documentclass{ksp-thesis}|) without any options will have the following effects:
+
+\begin{enumerate}
+	\item The \textpkgname{scrbook} class of the \textpkgname{KOMA-script} package is loaded as base class. All options provided to the class (except the \textpkgname{ksp-thesis}-specific options listed in \cref{sec:options}) are passed on to \textpkgname{KOMA-script}.
+   \item The packages \textpkgname{ClassicThesis} and \textpkgname{ArsClassica} are loaded, thus applying their layout and style settings. However, some settings of these packages are overridden or changed:
+   \begin{enumerate}
+      \item The page layout defined by \textpkgname{ClassicThesis} is overridden and constructed by \textpkgname{KOMA-script} instead.
+      \item Parts and chapters in the table of contents are emphasized by using bold font instead of uppercase words.
+      \item Page numbers are set flushed right in the table of contents.
+      \item List environments (\lstinline|itemize,enumerate,description|) are set ragged right.
+      \item Headings (\lstinline|chapter|, \dots, \lstinline|subsubsection|) are set ragged right.
+      \item Heading numbers use the width of the current chapter number, whereby the headings from level \lstinline|chapter| until \lstinline|subsubsection| begin at the same horizontal position.
+      \item The numbers of footnotes are shifted to the left so that footnotes have the same left margin as the text area.
+      \item Formatting (coloring) of hyperlinks is removed.\footnote{I believe that coloring options should be left to the document author and in general used sparingly.}
+   \end{enumerate}
+\end{enumerate}
