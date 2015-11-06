@@ -1,0 +1,19 @@
+%%% tcolorbox settings
+%%% ===========================================================================
+
+%%% settings for code listings
+%%% ---------------------------------------------------------------------------
+\tcbuselibrary{%
+   breakable,  % automatic breaking of a tcolorbox
+   listings,   % use the package <listings> to typeset listings
+   skins,      % required for advanced box styling
+}
+
+\tcbset{
+   break with pad/.style={
+      breakable,
+      enhanced jigsaw,
+      pad at break*=#1,
+   },
+   break without pad/.style={break with pad=0mm},
+}

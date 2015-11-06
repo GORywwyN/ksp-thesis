@@ -1,0 +1,22 @@
+%%% <biblatex> options
+%%% ...........................................................................
+\PassOptionsToPackage{%
+   citestyle=authoryear-comp,	% citation style
+   bibstyle=authoryear,       % bibliography style
+   hyperref=auto,             % transform citations and back references into clickable hyperlinks
+                              %  [auto] = if <hyperref> has been loaded
+   backend=biber,             % database backend
+   bibencoding=utf8,          % encoding of the bib files
+   isbn=false,                % print isbn/issn/isrn fields [true / false]
+   doi=false,                 % print DOI [true / false]
+   %url=false,                 % print URL and access date fields [true / false]
+   maxnames=2,                % maximum number of names that are printed
+   maxbibnames=99,            % maximum number of names that are printed (bibliography)
+   maxcitenames=2,            % maximum number of names that are printed (citation)
+   mincitenames=1,            % numbers of names to print if <maxnames> is exceeded
+   uniquelist=false,          % do not overrides maxnames/minnames 
+	%uniquelist=minyear,        % disambiguate the labelname list only if the truncated list is
+                              %  identical to another one with the same labelyear
+   firstinits=true,           % use initials for first names [true / false]
+   natbib=true,               % defined aliases for the commands of <natbib>
+}{biblatex}

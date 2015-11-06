@@ -1,0 +1,22 @@
+\definecolor{Maroon}{named}{KITgreen}
+%%% compatibility with todonotes
+\let\marginparcl\marginpar
+\let\marginpar\oldmarginpar
+%%% spaced caps with decreased letter spacing
+%\DeclareRobustCommand{\lessspacedallcaps}[1]{\textls[140]{\MakeTextUppercase{#1}}}%
+\newcommand{\uselessspacedallcaps}[1][140]{%
+\DeclareRobustCommand{\lessspacedallcaps}[1]{\textls[#1]{\MakeTextUppercase{##1}}}%
+\global\let\spacedallcapsdefault\spacedallcaps%
+\global\let\spacedallcaps\lessspacedallcaps%
+}
+\newcommand{\usedefaultspacedallcaps}{%
+\global\let\spacedallcaps\spacedallcapsdefault%
+}
+\newcommand{\uselessspacedlowsmallcaps}[1][70]{%
+\DeclareRobustCommand{\lessspacedlowsmallcaps}[1]{\textls[#1]{\scshape\MakeTextLowercase{##1}}}%
+\global\let\spacedlowsmallcapsdefault\spacedlowsmallcaps%
+\global\let\spacedlowsmallcaps\lessspacedlowsmallcaps%
+}
+\newcommand{\usedefaultspacedlowsmallcaps}{%
+\global\let\spacedlowsmallcaps\spacedlowsmallcapsdefault%
+}

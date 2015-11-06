@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  A list of recommended rules derived from
+%  <http://mirrors.ctan.org/graphics/pgf/contrib/tikz-3dplot/tikz-3dplot_documentation.pdf>:
+%
+%    \begin{macrocode}
+\Load {tikz-3dplot}  late
+                     if loaded
+                     because {the tikz-3dplot documentation 
+                              explicitly says to do so}
+%    \end{macrocode}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  A list of recommended rules derived from
+%  <http://www.matthiaspospiech.de/latex/vorlagen/allgemein/preambel>:
+%
+%    \begin{macrocode}
+\Load {graphicx}  early             if loaded
+\Load {relsize}   early             if loaded
+\Load {ragged2e}  early             if loaded
+\Load {amsmath}   before {pst-pdf}  if loaded
+\Load {ltxtable}  after {hyperref}  if loaded
+%    \end{macrocode}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

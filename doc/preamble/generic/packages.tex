@@ -1,0 +1,168 @@
+%%% NOTE: The package loading order is organized by <pkgloader>, comments on
+%%% when to load packages are merely informational
+
+%%% Fonts and symbols
+%%% ---------------------------------------------------------------------------
+%%% serif fonts
+%%% ...........................................................................
+%\usepackage{bookman}         % Bookman (loads Avant Garde)
+%\usepackage{charter}         % Charter
+%\usepackage{euler}           % AMS Euler font
+%\usepackage[euler-digits]{eulervm}  % Euler & CM math in equations
+                              %  >> do not use with default CM Modern font!
+                              %  >> load <mathdots>
+%\usepackage{fourier}         % Adobe Utopia
+%\usepackage[oldstylenums]{kpfonts} % originally derived from URW Palladio
+%\usepackage{lmodern}         % vectorization of default CM bitmap font
+%\usepackage[bitstream-charter]{mathdesign} % Charter BT, similar to Elsevier journal font
+%\usepackage{mathptmx}        % Times (PSNFSS)
+\usepackage[osf,sc]{mathpazo} % Adobe Palatino, 'mathpazo' in equations
+   \linespread{1.05}          % >> increase linespread for Palatino
+%\usepackage{MinionPro}       % Adobe Minion Pro
+%  \input{preamble/generic/settings/glyphtounicode}
+%  \pdfgentounicode=1         % >> searchable ligatures for Minion Pro
+%\usepackage{newcent}         % New Century Schoolbook (loads Avant Garde)
+%\usepackage{tgpagella}       % TeX Gyre Pagella (Palatino w/ ligatures, no old style figures)
+%%% sans-serif fonts
+%%% ...........................................................................
+%\usepackage{avant}                    % Avantgard
+%\usepackage{bera}                     % Bera
+%\usepackage{cmbright}                 % Computer Modern Bright
+%\usepackage[scaled=.90]{helvet}       % Helvetica (Arial)
+%\usepackage{iwona}                    % Iwona
+\renewcommand{\sfdefault}{iwona}
+%\usepackage{lxfonts}                  % LX fonts (presentation-friendly)
+	%\usefonttheme{professionalfonts}   % LX fonts doc recommendation for <beamer>
+%\usepackage{tpslifonts}               % various presentation-friendly fonts
+%\renewcommand{\sfdefault}{Myriad-LF}  % sans-serif font Myriad Pro (use with <MinionPro)
+%%% monospace fonts
+%%% ...........................................................................
+%\usepackage{courier}			      % Courier
+%\usepackage[scaled=0.9]{luximono}	% Luxi Mono
+\usepackage[scaled=0.85]{beramono}	% Bera Mono
+%%% symbols
+%%% ...........................................................................
+\usepackage{fontawesome}            % web-related icons 
+%\usepackage[misc]{ifsym}           % symbols for alpinistic, electronic, meteorological, geometric etc. usage
+%\usepackage{marvosym}              % various symbols
+%\usepackage{pifont}                % Zapf Dingbat symbols
+%\usepackage{stmaryrd}              % symbols for theoretical computer science
+%\usepackage{texlogos}              % various logos
+%\usepackage{textcomp}              % various symbols
+%\usepackage{upgreek}               % upright greek letters
+%\usepackage[nointegrals]{wasysym}  % mathematic and generic symbols
+
+%%% Typesetting
+%%% ---------------------------------------------------------------------------
+%\usepackage{abstract}     % control the typesetting of the abstract environment
+\usepackage{csquotes}		% context sensitive quotation facilities
+\usepackage{ellipsis}      % fix space around ellipses (\dots), load after <hyperref>
+%\usepackage{enumitem}		% customized lists (incompatible(?) with glossaries)
+\usepackage{isodate}       % date formatting
+\usepackage{listings}      % source code printer for LaTeX
+\usepackage{microtype}     % micro-typographic extensions of pdfTEX
+%\usepackage{multicol}     % multicolumn text
+%\usepackage{paralist}		% extended list environments
+\usepackage{ragged2e}      % improved ragged text
+                           % >> load early
+\usepackage{relsize}       % relative text sizes
+                           % >> load early
+\usepackage{siunitx}		% unit and number typesetting
+%\usepackage{soul}         % spaced out and underlined text
+%\usepackage{subcaption}	% typesetting of sub-captions
+%\usepackage{vhistory}     % document version history -- do not use in precombiled preamble!
+%\usepackage{xcolor}       % coloring
+%\usepackage{xspace}       % correct spacing after macros
+
+%%% Tables
+%%% ---------------------------------------------------------------------------
+\usepackage{array}				% improved array- and tabular-environments
+\usepackage{booktabs}         % professional table typesetting
+%\usepackage{dcolumn}         % align at decimal separator
+%\usepackage{multirow}        % cells spanning multiple rows
+%\usepackage{longtable}       % loaded by ltxtable
+%\usepackage{ltxtable}	      % <longtable> + <tabularx>
+                              % >> load after <hyperref>
+%\usepackage{tabu}            % advanced table commands
+%\usepackage{threeparttable}  % tables with footnotes
+
+%%% Math
+%%% ---------------------------------------------------------------------------´
+\usepackage{amsmath}             % various math typesetting improvements
+                                 % >> load before <pst-pdf>
+%\usepackage{amssymb}				% additional math symbols
+%\usepackage{cancel}             % cancel fractions etc.
+%\usepackage{commath}				% macros for derivatives and brackets
+%%\usepackage{empheq}				% emphasize equations
+%\usepackage{icomma}				   % intelligent comma in math mode
+%\usepackage{mathdots}				% improved dots
+\usepackage{mathtools}				% extends <amsmath> and fixes some bugs
+%\usepackage{nicefrac}				% alternative fraction typesetting (obsolete, use xfrac)
+%\usepackage[warning,all]{onlyamsmath} % warnings for deprecated math environments
+                                 % >> incompatible with TikZ
+%\usepackage{xfrac}				   % split-level fractions
+%\newcommand{\nicefrac}[2]{\sfrac{#1}{#2}}
+
+%%% Development tools
+%%% ---------------------------------------------------------------------------
+\usepackage{accsupp}       % better accessibility support for PDF files (experimental)
+\usepackage{blindtext}    % blindtext macros
+\usepackage{fixltx2e}      % bug fixes for LaTeX2e
+%\usepackage{ifthen}       % if-then-commands
+%\usepackage{morewrites}   % solve the error “No room for a new \write” (buggy?)
+%\usepackage{xifthen}      % extended if-then
+%\usepackage{xparse}       % document-level commands
+
+%%% Graphics, color, boxes
+%%% ---------------------------------------------------------------------------
+%\usepackage{adjustbox}				% adjustable boxes
+%\usepackage{graphicx}            % extension of <graphics>, various image command
+                                 % >> load early
+\usepackage{keystroke}           % graphical representation of the keys on a computer keyboard
+%\usepackage{KITcolors}				% KIT colors
+%\usepackage{pgfplots}				% draw plots using TikZ
+	%\usepackage{pgfplotstable}
+	%\usepgfplotslibrary{groupplots}
+\usepackage{tcolorbox}           % coloured and framed text boxes with a heading line
+%\usepackage{tikz}					% commands for drawings
+	%\usetikzlibrary{
+		%angles,
+		%arrows,
+		%arrows.meta,
+		%backgrounds,
+		%calc,
+		%chains,
+		%decorations,
+		%decorations.markings,
+		%decorations.pathreplacing,
+		%decorations.pathmorphing,
+		%decorations.text,
+		%external,
+		%fit,
+		%intersections,
+		%patterns,
+		%plotmarks,
+		%positioning,
+		%shapes,
+	%}
+	%\usepgflibrary{fpu}
+%\usepackage{tkz-euclide}	% geometric calculations
+%\usepackage{tikz-3dplot}	% draw three-dimensional coordinate systems
+                           % >> load at end because the <tikz-3dplot> documentation explicitly says to do so
+%\usepackage{wrapfig}				% wrap text around figures
+
+%%% Lists and Bibliographies
+%%% ---------------------------------------------------------------------------
+%\usepackage{biblatex}		% bibliography creation
+%\usepackage{cite} 		   % well formed numeric citations
+%\usepackage{currvita}		% environment for CVs
+%\usepackage{glossaries}	% glossary creation
+                           %  >> for TeXnicCenter: http://bit.ly/glossaries-texnic
+                           %  >> load after <hyperref> (see documentation)
+%\usepackage{nomencl}		% nomenclature
+
+%%% References and Links
+%%% ---------------------------------------------------------------------------
+\usepackage{hyperref}	   % hyperlinks and pdf setup
+\usepackage{cleveref}      % automatic references
+                           % >> load after <hyperref> because <cleveref> adds special supportfor this package

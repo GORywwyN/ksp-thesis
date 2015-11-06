@@ -1,0 +1,31 @@
+%%% copy listing content to clipboard
+%%% ===========================================================================
+%%% http://tex.stackexchange.com/a/146932
+\makeatletter
+\lst@RequireAspects{writefile}
+
+%% Use \attachfile command to add listing content as paperclip.
+%% >> requires the <attachfile> package
+%\lstnewenvironment{attachedlisting}{%
+  %\lst@BeginAlsoWriteFile{\jobname.lsttmp}%
+%}
+%{%
+  %\lst@EndWriteFile
+  %\marginpar{\attachfile[appearance=false,icon=Paperclip,mimetype=text/tex]{\jobname.lsttmp}}
+%}
+
+% Use accsupp package to add listing content as copyable text.
+% >> requires the <accsup> package and uses a symbol from the <fontawesome> package
+\lstnewenvironment{copyablelisting}{%
+  \lst@BeginAlsoWriteFile{\jobname.lsttmp}%
+}
+{%
+  \lst@EndWriteFile
+  \let\verbatim@processline\add@lstline
+  \global\let\lstfile\empty
+  \verbatiminput{\jobname.lsttmp}%
+  \marginpar{[\BeginAccSupp{method=escape,ActualText={\lstfile}}\faDownload\EndAccSupp{}]}
+}
+\def\add@lstline
+{\xdef\lstfile{\unexpanded\expandafter{\lstfile}\the\verbatim@line\string^^J}}
+\makeatother

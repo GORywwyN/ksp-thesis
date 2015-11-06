@@ -1,0 +1,60 @@
+%%% ===========================================================================
+%%% DOCUMENT PREAMBLE
+%%% ===========================================================================
+\RequirePackage[additional]{pkgloader} % manage options and loading order of packages
+\input{preamble/generic/options}
+
+%%% Document class and generic options
+%%% ===========================================================================
+\documentclass[%
+   american,
+]{scrartcl}
+
+%%% Language and encoding
+%%% ---------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}   % Datei-Kodierung (benötigt für Umlaute)
+                              %  latin9 (ISO-8859-9) = latin1+"Euro sign"
+\usepackage[TS1,T1]{fontenc}  % Schrift-Kodierung
+\usepackage{babel}            % Rechtschreibung, Silbentrennung etc.
+
+%%% Load packages
+%%% ===========================================================================
+\usepackage{solarized-light}  % solarized color scheme for listings
+\input{preamble/generic/packages}
+\LoadPackagesNow
+
+%%% Document meta data
+%%% ===========================================================================
+\input{article/docinfo}
+
+%%% Settings and commands
+%%% ===========================================================================
+\input{preamble/generic/settings}
+\input{preamble/generic/commands}
+%%% Abbreviations
+%%% ---------------------------------------------------------------------------
+\newcommand{\KIT}{\textsmaller{KIT}\xspace}
+\newcommand{\KSP}{\textsmaller{KSP}\xspace}
+
+%%% Document layout
+%%% ===========================================================================
+\input{preamble/article/layout}
+
+%%% Content data
+%%% ===========================================================================
+%\addbibresource{bibliography.bib}
+
+%\hyphenation{
+%}
+
+%%% ===========================================================================
+%%% DOCUMENT CONTENT
+%%% ===========================================================================
+\begin{document}
+\selectlanguage{american}
+
+\blinddocument
+
+%\input{article/content}
+
+\end{document}

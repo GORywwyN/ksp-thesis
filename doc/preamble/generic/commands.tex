@@ -1,0 +1,60 @@
+%%% Custom command and environments
+%%% ===========================================================================
+%%% Text shortcuts
+%%% ---------------------------------------------------------------------------
+\RequirePackage{xspace}
+%%% ... English
+%\newcommand{\BV}{\mbox{B.\,V.}\xspace}
+%\newcommand{\cf}{\mbox{cf.}\xspace}
+%\newcommand{\eg}{\mbox{e.\,g.}\xspace}
+%\newcommand{\etal}{\mbox{et\,al.}\xspace}
+\newcommand{\etc}{\mbox{etc.}\xspace}
+%\newcommand{\etsqq}{\mbox{et\,sqq.}\xspace}
+%\newcommand{\ia}{\mbox{i.\,a.}\xspace}
+%\newcommand{\ie}{\mbox{i.\,e.}\xspace}
+%\newcommand{\Inc}{\mbox{Inc.}\xspace}
+%\newcommand{\Ltd}{\mbox{Ltd.}\xspace}
+%\newcommand{\no}{\mbox{no.}\xspace}
+%\newcommand{\vs}{\mbox{vs.}\xspace}
+%%% ... German
+%\newcommand{\bzw}{\mbox{bzw.}\xspace}
+%\newcommand{\ca}{\mbox{ca.}\xspace}
+%\newcommand{\dhe}{\mbox{d.\,h.}\xspace}
+%\newcommand{\evtl}{\mbox{evtl.}\xspace}
+%\newcommand{\ggf}{\mbox{ggf.}\xspace}
+%\newcommand{\idR}{\mbox{i.\,d.\,R.}\xspace}
+%\newcommand{\insb}{\mbox{insb.}\xspace}
+%\newcommand{\vgl}{\mbox{vgl.}\xspace}
+%\newcommand{\sog}{\mbox{sog.}\xspace}
+%\newcommand{\zB}{\mbox{z.\,B.}\xspace}
+
+%%% Custom lists
+%%% ---------------------------------------------------------------------------
+\RequirePackage{enumitem}
+
+%%%% Table layout
+%%%% ---------------------------------------------------------------------------
+%%%% ... linebreaks in cells \breakcell[<vert. alignment]{<hor. alignment>}{<content>}
+%\newenvironment{breakcell}[2][t]{%
+	%\begingroup
+	%\renewcommand{\arraystretch}{1}%
+	%\begin{tabular}[#1]{@{}#2@{}}
+%}{%
+	%\end{tabular}
+	%\endgroup
+%}
+
+%%%% math
+%%%% ---------------------------------------------------------------------------
+%%%% http://stackoverflow.com/a/1436771
+%%\newcommand{\slfrac}[2]{\left.#1\kern-.1em\middle/\kern-.08em#2\right.}
+%\newlength{\numkern}
+%\newlength{\denomkern}
+%\NewDocumentCommand{\slfrac}{O{0pt}mO{0pt}m}{%
+%\setlength{\numkern}{-.1em}\addtolength{\numkern}{#1}%
+%\setlength{\denomkern}{-.05em}\addtolength{\denomkern}{#3}%
+%\left.#2\kern\numkern\middle/\kern\denomkern#4\right.}
+%\NewDocumentCommand{\slod}{O{0pt}mO{0pt}m}{%
+%\setlength{\numkern}{-.1em}\addtolength{\numkern}{#1}%
+%\setlength{\denomkern}{-.05em}\addtolength{\denomkern}{#3}%
+%\left.\dif#2\kern\numkern\middle/\kern\denomkern\dif#4\right.}
