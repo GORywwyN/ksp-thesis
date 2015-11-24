@@ -49,6 +49,21 @@
 \newcommand{\textkey}[1]{\fbox{\textsf{#1}}}
 \newcommand{\textprgout}[1]{{<<\textit{#1}>>}}
 \lstMakeShortInline[language=bash]|
+\newcommand{\optionfont}[1]{{\normalfont\ttfamily\bfseries #1}}
+\newcommand{\optionvaluefont}[1]{{\normalfont\ttfamily\itshape #1}}
+\newcommand{\optionvaluedefaultfont}[1]{\textbf{#1}}
+
+%%% custom lists
+\newenvironment{optionlist}{%
+\begin{description}[font=\optionfont, leftmargin=0pt, labelindent=-\marginparwidth, style=nextline]
+}{%
+\end{description}
+}
+\newenvironment{valuelist}{%
+\begin{description}[font=\optionvaluefont, leftmargin=1em, labelindent=-\marginparwidth, style=nextline]
+}{%
+\end{description}
+}
 
 %%% boxes
 %\newtcblisting{texcode}[1]{title=#1}
