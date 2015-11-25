@@ -142,6 +142,14 @@ The package options below are formatted as \optionfont{option}\optionvaluefont{=
 %%% ---------------------------------------------------------------------------
 \subsection{Commands}
 
+When publishing with \KSP, you will be asked to avoid single syllables or short words in the last line of a paragraph. For this purpose, \textpkgname{ksp-thesis} defines some commands that can be used to change the word spacing or stretching\footnote{Make sure that the legibility of your text is not impaired when using these commands.}.
+\begin{commandlist}
+   \cmd{reducewspc}{[<num>]} Change the word spacing to \commandargfont{<num>} (default: \commandargfont{.95}) times its original value.
+   \cmd{reducewstr}{[<num>]} Change the word stretching to \commandargfont{<num>} (default: \commandargfont{.95}) times its original value.
+   \cmd{resetwspc}{} Reset the word spacing to its default value.
+   \cmd{resetwstr}{} Reset the word stretching to its default value.
+\end{commandlist}
+
 %%% ===========================================================================
 \section{Troubleshooting and Usage Tips}
 
