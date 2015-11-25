@@ -104,7 +104,16 @@
 }
 %%% dotted part entries in TOC
 \define@boolkey+{ksp-thesis.cls}[kspths@]{dottedtocparts}[true]{%
+   \ifkspths@dottedtoc
+   \else
+      \ifkspths@dottedtocparts
+         \ClassWarning{ksp-thesis}{You are using 'dottedtocparts=true' %
+            in combination with 'dottedtoc=false'. This results in an %
+            inconsistent TOC layout and is not recommended}%
+      \fi
+   \fi
 }{%
+   \else
    \ClassError{ksp-thesis}{Invalid value '#1' for 'dottedtocparts' key, %
       assuming 'true'}%
       {Please use 'true' or 'false'}%
@@ -112,6 +121,14 @@
 }
 %%% dotted chapter entries in TOC
 \define@boolkey+{ksp-thesis.cls}[kspths@]{dottedtocchapters}[true]{%
+   \ifkspths@dottedtoc
+   \else
+      \ifkspths@dottedtocchapters
+         \ClassWarning{ksp-thesis}{You are using 'dottedtocchapters=true' %
+            in combination with 'dottedtoc=false'. This results in an %
+            inconsistent TOC layout and is not recommended}%
+      \fi
+   \fi
 }{%
    \ClassError{ksp-thesis}{Invalid value '#1' for 'dottedtocchapters' key, %
       assuming 'true'}%
