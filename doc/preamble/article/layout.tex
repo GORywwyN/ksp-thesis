@@ -91,6 +91,19 @@
    fonttitle=\footnotesize\ttfamily,
    title=#2,#1
 }
+\newtcbinputlisting{\inputtexcode}[3][]{%
+   listing file={#3},
+   no listing options,
+   listing only,
+   coltitle=sbase2,
+   colbacktitle=sbase0,
+   colback=sbase3,
+   colframe=sbase02,
+   boxrule=0.5pt,
+   left=1mm,right=1mm,top=0mm,bottom=0mm,
+   fonttitle=\footnotesize\ttfamily,
+   title=#2,#1
+}
 %%% http://tex.stackexchange.com/a/146932
 \makeatletter
 \newtcblisting{copyabletexcode}[2][]{%
