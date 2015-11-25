@@ -53,6 +53,8 @@
 \newcommand{\optionvaluefont}[1]{{\ttfamily\itshape #1}}
 \newcommand{\optionvaluedefaultfont}[1]{\textbf{#1}}
 \newcommand{\option}[1]{\optionfont{#1\index{options!#1}}}
+\newcommand{\commandfont}[1]{{\ttfamily\bfseries #1}}
+\newcommand{\commandargfont}[1]{{\ttfamily #1}}
 %%% custom lists
 \newenvironment{optionlist}{%
 \begin{description}[font=\normalfont\optionfont, leftmargin=0pt, labelindent=-\marginparwidth, style=nextline]
@@ -63,6 +65,13 @@
 
 \newenvironment{valuelist}{%
 \begin{description}[font=\normalfont\optionvaluefont, leftmargin=1em, labelindent=-\marginparwidth, style=nextline]
+}{%
+\end{description}
+}
+
+\newenvironment{commandlist}{%
+\begin{description}[font=\normalfont,leftmargin=0pt, labelindent=-\marginparwidth, style=nextline]
+\newcommand{\cmd}[2]{\item[\commandfont{\textbackslash##1}\commandargfont{##2}\index{commands!\textbackslash##1}]}
 }{%
 \end{description}
 }
