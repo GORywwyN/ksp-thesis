@@ -181,3 +181,5 @@ gitstats/*
 source/miktex/
 demo/thesis.pdf
 demo/thesis.tcp
+*.tcp
+*.listing
