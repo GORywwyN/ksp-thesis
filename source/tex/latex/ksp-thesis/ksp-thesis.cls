@@ -297,7 +297,7 @@
 \let\spacedlowsmallcaps\relax%
 \cftpartfontoriginal\bfseries}%
    \let\cftpartpagefontoriginal\cftpartpagefont
-   \renewcommand{\cftpartafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp}
+   \renewcommand{\cftpartafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp\ifkspths@dottedtoc\else\cftparfillskip\fi}
    \renewcommand{\cftpartpagefont}{\cftpartpagefontoriginal\bfseries}%
 \fi
 %%% use bold chapters instead of smallcaps if specified in the options
@@ -307,7 +307,7 @@
 \let\spacedlowsmallcapstemp\spacedlowsmallcaps%
 \let\spacedlowsmallcaps\relax%
 \normalfont\bfseries}%
-   \renewcommand{\cftchapafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp}
+   \renewcommand{\cftchapafterpnum}{\let\spacedlowsmallcaps\spacedlowsmallcapstemp\ifkspths@dottedtoc\else\cftparfillskip\fi}
    \renewcommand{\cftchappagefont}{\normalfont\bfseries}%
 \fi
 %%% use dotted leaders for parts/chapters if specified in the options
