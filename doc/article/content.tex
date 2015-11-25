@@ -15,11 +15,11 @@ The \textpkgname{ksp-thesis} class is a \LaTeX\ class intended for authors who w
 %%% ===========================================================================
 \section{Introduction}
 
-This class is intended to aid authors intending to publish a thesis (or a similar scientific work) with \KIT Scientific Publishing (\KSP)\footnote{\url{http://www.ksp.kit.edu/}}, the internal publishing company of the Karlsruhe Institute of Technology (\KIT). The layout provided by this class was used for publication of my own thesis at \KSP and should thus adhere to their requirements. However, while being based on the official \LaTeX templates provided by \KSP, the class is not maintained by \KSP.
+This class is intended to aid authors intending to publish a thesis (or a similar scientific work) with \KIT Scientific Publishing (\KSP)\footnote{\url{http://www.ksp.kit.edu/}}, the internal publishing company of the Karlsruhe Institute of Technology (\KIT). The layout provided by this class was used for publication of my own thesis at \KSP and should thus adhere to their requirements. However, while being based on the official \LaTeX\ templates provided by \KSP, the class is not maintained by \KSP.
 
 The \textpkgname{ksp-thesis} class builds on the \textpkgname{scrbook} class of the \textpkgname{KOMA-script}\footnote{\url{http://www.ctan.org/pkg/koma-script}} package in combination with the \textpkgname{ClassicThesis}\footnote{\url{http://www.ctan.org/pkg/classicthesis}} and \textpkgname{ArsClassica}\footnote{\url{http://www.ctan.org/pkg/arsclassica}} packages. Therefore, you (the user of this class) should be familiar with these three packages.
 
-\begin{minipage}{\linewidth} % keep text block on one page
+\pagebreak % keep text block on one page
 André Miede, the author of the \textpkgname{ClassicThesis} package, asks his package users to send him a postcard:
 \begin{quote}\itshape
    If you like the style then I would appreciate a postcard:
@@ -35,7 +35,6 @@ André Miede, the author of the \textpkgname{ClassicThesis} package, asks his pa
    \end{center}
 \end{quote}
 As the \textpkgname{ksp-thesis} class uses many features of the \textpkgname{ClassicThesis} package, I would ask you to do so as well if you use \textpkgname{ksp-thesis} class.
-\end{minipage}
 
 %%% ===========================================================================
 \section{Installation}
@@ -43,13 +42,13 @@ As the \textpkgname{ksp-thesis} class uses many features of the \textpkgname{Cla
 \begin{enumerate}
    \item Get the latest release of \textfilename{ksp-thesis.zip} from
 
-      \url{http://github.com/GORywwyN/release/}
+      \url{http://github.com/GORywwyN/ksp-thesis/release/}
 
    or download the file
 
       \url{http://www.ctan.org/macros/latex/contrib/ksp-thesis.zip}
 
-   \item Unpack the archive in the root directory of the local \TeX installation tree, for example
+   \item Unpack the archive in the root directory of the local \TeX\ installation tree, for example
    
    \begin{itemize}
       \item \textfilename{/usr/local/share/texmf/} or
@@ -83,6 +82,8 @@ Using \textpkgname{ksp-thesis} as your document class (\lstinline|\documentclass
    \end{enumerate}
 \end{enumerate}
 
+Some of these settings can be changed using the class options listed in the following.
+
 %%% ---------------------------------------------------------------------------
 \subsection{Options}
 \label{sec:options}
@@ -99,7 +100,7 @@ The class options below are formatted as \optionfont{option}\optionvaluefont{=\o
       \item[=\optionvaluedefaultfont{report}] \KIT Scientific Report layout (A4 paper size) for publication release
       \item[=17x24] \KIT Scientific Publishing book layout (\SI{17}{\centi\meter} x \SI{24}{\centi\meter} paper size) for publication release
       \item[=official] two-sided layout (paper size A4) for faculty and thesis committee (identical to \optionvaluefont{report})
-      \item[=draft] singled-sided layout (paper size A4) for private print and correction prints
+      \item[=draft] singled-sided layout (paper size A4) for private and correction prints
    \end{valuelist}
    
    \opt[raggedlists] Set lists (itemize, enumerate, description) \dots
@@ -116,7 +117,7 @@ The class options below are formatted as \optionfont{option}\optionvaluefont{=\o
 \begin{optionlist}
    \opt[dottedtoc] Set page numbers in the table of contents \dots
    \begin{valuelist}
-      \item[=\optionvaluedefaultfont{true}] \dots flushed right. For sections entries and below, page numbers are separated by dots. For part and chapter entries, empty space is used by default. This default be changed with the options \option{dottedtocparts} and \option{dottedtocchapters}.
+      \item[=\optionvaluedefaultfont{true}] \dots flushed right. For sections entries and below, page numbers are separated by dots. For part and chapter entries, empty space is used by default. This default setting can be changed with the options \option{dottedtocparts} and \option{dottedtocchapters}.
       \item[=false] \dots separated by a fixed-width space.
    \end{valuelist}
    
@@ -193,7 +194,7 @@ For example, if your document contains eight parts, you may adjust the width as 
 \setlength{\cftchapnumwidth}{\cftpartnumwidth}
 \end{texcode}
 
-Further information on how to modify the layout of the table of contents can be found in the documentation of the \textpkgname{tocloft} package.
+Further information on how to modify the layout of the table of contents can be found in the documentation of the \textpkgname{tocloft}\footnote{\url{http://www.ctan.org/pkg/tocloft}} package.
 
 %%% ---------------------------------------------------------------------------
 \subsection{Changing the color of part headings}
