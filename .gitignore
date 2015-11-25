@@ -183,3 +183,6 @@ demo/thesis.pdf
 demo/thesis.tcp
 *.tcp
 *.listing
+doc/pkgloader-additional.sty
+doc/solarized-light.sty
+doc/solarized.sty
