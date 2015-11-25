@@ -52,10 +52,12 @@
 \newcommand{\optionfont}[1]{{\normalfont\ttfamily\bfseries #1}}
 \newcommand{\optionvaluefont}[1]{{\normalfont\ttfamily\itshape #1}}
 \newcommand{\optionvaluedefaultfont}[1]{\textbf{#1}}
+\newcommand{\option}[1]{\optionfont{#1\index{options!#1}}}
 
 %%% custom lists
 \newenvironment{optionlist}{%
 \begin{description}[font=\optionfont, leftmargin=0pt, labelindent=-\marginparwidth, style=nextline]
+\newcommand{\opt}[1][\empty]{\item[##1\ifx##1\empty\else\index{options!##1}\fi]}
 }{%
 \end{description}
 }

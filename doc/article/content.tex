@@ -82,7 +82,7 @@ The package options below are formatted as \optionfont{option}\optionvaluefont{=
 \label{sec:generic-layout}
 
 \begin{optionlist}
-   \item[layout] Set the \textpkgname{KOMA-script} page layout according to one of the following options:
+   \opt[layout] Set the \textpkgname{KOMA-script} page layout according to one of the following options:
    \begin{valuelist}
       \item[=\optionvaluedefaultfont{report}] \KIT Scientific Report layout (A4 paper size) for publication release
       \item[=17x24] \KIT Scientific Publishing book layout (\SI{17}{\centi\meter} x \SI{24}{\centi\meter} paper size) for publication release
@@ -90,7 +90,7 @@ The package options below are formatted as \optionfont{option}\optionvaluefont{=
       \item[=draft] singled-sided layout (paper size A4) for private print and correction prints
    \end{valuelist}
    
-   \item[raggedlists] Set lists (itemize, enumerate, description) \dots
+   \opt[raggedlists] Set lists (itemize, enumerate, description) \dots
    \begin{valuelist}
       \item[=\optionvaluedefaultfont{true}] \dots ragged right. (More specifically, the \lstinline|\RaggedRight| command of the \textpkgname{ragged2e} package is used.)
       \item[=false] \dots justified.
@@ -102,37 +102,37 @@ The package options below are formatted as \optionfont{option}\optionvaluefont{=
 \label{sec:toc-layout}
    
 \begin{optionlist}
-   \item[dottedtoc] Set page numbers in the table of contents \dots
+   \opt[dottedtoc] Set page numbers in the table of contents \dots
    \begin{valuelist}
-      \item[=\optionvaluedefaultfont{true}] \dots flushed right. For sections entries and below, page numbers are separated by dots. For part and chapter entries, empty space is used by default. This default be changed with the options \optionfont{dottedtocparts} and \optionfont{dottedtocchapters}.
+      \item[=\optionvaluedefaultfont{true}] \dots flushed right. For sections entries and below, page numbers are separated by dots. For part and chapter entries, empty space is used by default. This default be changed with the options \option{dottedtocparts} and \option{dottedtocchapters}.
       \item[=false] \dots separated by a fixed-width space.
    \end{valuelist}
    
-   \item[dottedtocparts] Separate part entries and page numbers in the table of contents \dots
+   \opt[dottedtocparts] Separate part entries and page numbers in the table of contents \dots
    \begin{valuelist}
       \item[=\optionvaluedefaultfont{false}] \dots with empty space.
-      \item[=true] \dots with dots. This value should only be used with \optionfont{dottedtoc}\optionvaluefont{=true}.
+      \item[=true] \dots with dots. This value should only be used with \option{dottedtoc}\optionvaluefont{=true}.
    \end{valuelist}
    
-   \item[dottedtocchapters] Separate chapter entries and page numbers in the table of contents \dots
+   \opt[dottedtocchapters] Separate chapter entries and page numbers in the table of contents \dots
    \begin{valuelist}
       \item[=\optionvaluedefaultfont{false}] \dots with empty space.
-      \item[=true] \dots with dots. This value should only be used with \optionfont{dottedtoc}\optionvaluefont{=true}.
+      \item[=true] \dots with dots. This value should only be used with \option{dottedtoc}\optionvaluefont{=true}.
    \end{valuelist}
    
-   \item[tocpartentriesbold] Format part entries in the table of contents \dots
+   \opt[tocpartentriesbold] Format part entries in the table of contents \dots
    \begin{valuelist}
       \item[=\optionvaluedefaultfont{true}] \dots with bold font.
       \item[=false] \dots with spaced low small caps. (This is the default setting of \textpkgname{ClassicThesis}). 
    \end{valuelist}
    
-   \item[tocchapterentriesbold] Format chapter entries in the table of contents \dots
+   \opt[tocchapterentriesbold] Format chapter entries in the table of contents \dots
    \begin{valuelist}
       \item[=\optionvaluedefaultfont{true}] \dots with bold font.
       \item[=false] \dots with spaced low small caps. (This is the default setting of \textpkgname{ClassicThesis}). 
    \end{valuelist}
    
-   \item[tocentriesbold] Format part and chapter entries in the table of contents \dots
+   \opt[tocentriesbold] Format part and chapter entries in the table of contents \dots
    \begin{valuelist}
       \item[=\optionvaluedefaultfont{true}] \dots with bold font.
       \item[=false] \dots with spaced low small caps. (This is the default setting of \textpkgname{ClassicThesis}). 
@@ -191,7 +191,7 @@ If, for example, you prefer a black-and-white document, you can thus simply rede
 
 
 %%% ===========================================================================
-\section*{Index}
+\printindex
 
 
 %%% ===========================================================================
