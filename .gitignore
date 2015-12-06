@@ -134,7 +134,8 @@ content/appendix/figures/tikz-ext/*
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -177,3 +178,13 @@ gitstats/*
 # =========================
 # Custom additions
 # =========================
+source/miktex/
+demo/thesis.pdf
+demo/thesis.tcp
+*.tcp
+*.listing
+doc/pkgloader-additional.sty
+doc/solarized-light.sty
+doc/solarized.sty
+doc/ksp-thesis.pdf
+release/release.bat
