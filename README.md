@@ -36,13 +36,15 @@ a document layout that should be compatible with the requirements by KSP.
 
 - Get the latest release of *ksp-thesis.zip* from
 
-  http://github.com/GORywwyN/ksp-thesis/release/
+  https://github.com/GORywwyN/ksp-thesis/tree/master/release/
 
   or download the file
 
   http://www.ctan.org/macros/latex/contrib/ksp-thesis.zip
 
-- Unpack the archive in the root directory of the local TeX installation tree, 
+- Extract the file *ksp-thesis.tds.zip* from the archive 
+
+- Unpack the *ksp-thesis.tds.zip* archive in the root directory of the local TeX installation tree, 
   for example
   - /usr/local/share/texmf/ or
   - /usr/share/texmf-local/ or
