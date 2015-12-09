@@ -3,7 +3,7 @@
 %%% A LaTeX class for theses published with KIT Scientific Publishing
 %%% ===========================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ksp-thesis}[2015/11/02 LaTeX class for theses published with KIT Scientific Publishing]
+\ProvidesClass{ksp-thesis}[2015/12/09 v1.0.2 LaTeX class for theses published with KIT Scientific Publishing]
 
 %%% ===========================================================================
 %%% PRELIMINARY DECLARATIONS

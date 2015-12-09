@@ -2,6 +2,8 @@
 
 Copyright (C) 2015 David Heinze
 
+Version 1.0.2 (2015-12-09)
+
 http://exergie100.de/en/contact/
 
 
