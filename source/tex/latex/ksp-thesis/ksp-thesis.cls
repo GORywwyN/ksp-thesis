@@ -203,7 +203,7 @@
 %%% LOAD BASE CLASS <scrbook>
 %%% =========================================================================== 
 \LoadClass{scrbook}
-\RequirePackage{scrpage2}  % change header and footer
+\RequirePackage{scrlayer-scrpage}  % change header and footer
 
 %%% ===========================================================================
 %%% MAIN DECLARATIONS
@@ -371,6 +371,7 @@
 \origiwstr=\fontdimen3\font% original inter word stretch
 }
 %%% do not highlight links (remove colors set by <arsclassica>)
+\RequirePackage{hyperref}
 \hypersetup{
    hidelinks,     % remove link color and border
 }
