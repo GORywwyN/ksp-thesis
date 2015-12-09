@@ -53,3 +53,18 @@ a document layout that should be compatible with the requirements by KSP.
   On TeX Live systems, run *texhash* as root *|sudo texhash|*. On MiKTeX, run 
   *initexmf --update-fndb* in a command window or use the *Refresh FNDB* 
   button of the MiKTeX Options window.
+
+## Version history
+
+### 1.0.2 (2015-12-09)
+
+- Use the  scrlayer-scrpage* package instead of the obsolete *scrpage2* package (thanks to Martin Feck for pointing this out)
+- Require the *hyperref* package explicitely to avoid errors when using TeXLive
+
+### 1.0.1 (2015-12-06)
+
+- Correct installation information in the documentation file
+
+### 1.0 (2015-12-06)
+
+- Initial release
