@@ -3,7 +3,7 @@
 %%% A LaTeX class for theses published with KIT Scientific Publishing
 %%% ===========================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ksp-thesis}[2015/11/02 LaTeX class for theses published with KIT Scientific Publishing]
+\ProvidesClass{ksp-thesis}[2015/12/09 v1.0.2 LaTeX class for theses published with KIT Scientific Publishing]
 
 %%% ===========================================================================
 %%% PRELIMINARY DECLARATIONS
@@ -203,7 +203,7 @@
 %%% LOAD BASE CLASS <scrbook>
 %%% =========================================================================== 
 \LoadClass{scrbook}
-\RequirePackage{scrpage2}  % change header and footer
+\RequirePackage{scrlayer-scrpage}  % change header and footer
 
 %%% ===========================================================================
 %%% MAIN DECLARATIONS
@@ -371,6 +371,7 @@
 \origiwstr=\fontdimen3\font% original inter word stretch
 }
 %%% do not highlight links (remove colors set by <arsclassica>)
+\RequirePackage{hyperref}
 \hypersetup{
    hidelinks,     % remove link color and border
 }
