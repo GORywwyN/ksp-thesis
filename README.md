@@ -40,7 +40,7 @@ a document layout that should be compatible with the requirements by KSP.
 
   or download the file
 
-  http://www.ctan.org/macros/latex/contrib/ksp-thesis.zip
+  http://mirrors.ctan.org/macros/latex/contrib/ksp-thesis.zip
 
 - Extract the file *ksp-thesis.tds.zip* from the archive 
 
